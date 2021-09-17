@@ -9,3 +9,4 @@ def step_function(
 ) -> NDArray[numpy.float64]:
     y = x > 0
     return cast(NDArray[numpy.float64], y.astype(numpy.int_))
+
