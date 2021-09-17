@@ -18,3 +18,9 @@ def sigmoid(
     with warnings.catch_warnings():
         warnings.filterwarnings("ignore")
         return 1.0 / (1.0 + numpy.exp(-x))
+
+
+def relu(
+    x: NDArray[numpy.float64],
+) -> NDArray[numpy.float64]:
+    return numpy.maximum(0.0, x)

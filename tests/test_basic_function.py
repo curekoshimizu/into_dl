@@ -1,6 +1,6 @@
 import numpy
 
-from into_dl.basic_function import sigmoid, step_function
+from into_dl.basic_function import relu, sigmoid, step_function
 
 
 def test_step_function() -> None:
@@ -18,3 +18,12 @@ def test_sigmoid() -> None:
     y = sigmoid(numpy.array([z, -z]))
     assert 0.9 < y[0] <= 1.0
     assert 0 <= y[1] < 0.1
+
+
+def test_relu() -> None:
+    y = relu(numpy.array([0.0]))
+    assert y == numpy.array([0.0])
+
+    z = 1.0e5
+    y = relu(numpy.array([z, -z]))
+    assert numpy.all(y == numpy.array([z, 0.0]))
